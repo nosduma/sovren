@@ -1,0 +1,52 @@
+# import base64
+# import requests
+# import json
+# import os.path
+# import datetime
+
+# # Define screening criteria for multiple jobs
+# job_criteria = {
+#     "Job1": {
+#         "desired_skills": ["Python", "Java", "SQL"],
+#         "min_experience_years": 3,
+#         "required_degree": "Bachelor's Degree"
+#     },
+#     "Job2": {
+#         "desired_skills": ["JavaScript", "HTML", "CSS"],
+#         "min_experience_years": 2,
+#         "required_degree": "Bachelor's Degree"
+#     },
+#     # Add criteria for more jobs as needed
+# }
+
+# base64str = ''
+# filePath = 'resume.docx'
+
+# # ... (rest of the code remains the same)
+
+
+# if response.status_code == 200:
+#     try:
+#         responseJson = json.loads(response.content)
+#         resumeData = responseJson.get('Value', {}).get('ResumeData', {})
+
+#         # Iterate through job positions and criteria
+#         for job_name, criteria in job_criteria.items():
+#             # Check if the candidate meets the criteria for the current job
+#             candidate_skills = resumeData.get('Skills', [])
+#             candidate_experience_years = ...  # Calculate the candidate's experience years
+#             candidate_degree = ...  # Extract the candidate's degree
+
+#             # Check skills criteria
+#             if all(skill in candidate_skills for skill in criteria["desired_skills"]):
+#                 # Check experience criteria
+#                 if candidate_experience_years >= criteria["min_experience_years"]:
+#                     # Check education criteria
+#                     if criteria["required_degree"] in candidate_degree:
+#                         # The candidate meets the criteria for the current job
+#                         print(f"Candidate meets criteria for {job_name} position.")
+
+#     except json.JSONDecodeError:
+#         print("Error: Unable to decode JSON response.")
+# else:
+#     print(f"Error: API request failed with status code {response.status_code}")
